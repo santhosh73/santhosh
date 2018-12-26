@@ -1,0 +1,106 @@
+<div class="jumbotron">
+<div class="container">
+  <div class="section card mb-6">
+  <form [formGroup]="registerForm" (ngSubmit)="submit()">
+    <div class="card-body">
+    <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="cusr_id">User ID</label>
+      <input type="number" formControlName="cusr_id" id="cusr_id" class="form-control" placeholder="User ID" [ngClass]="{'is-invalid':submitted && id.cusr_id.errors }">
+      <div *ngIf="submitted && id.cusr_id.errors" class="invalid-feedback">
+        <div *ngIf="id.cusr_id.errors.required">User ID is required</div>
+      </div>
+    </div>
+    </div>
+    <!-- <div class="col-md-6 mb-3 alert alert-danger" *ngIf="!registerForm.controls['cusr_id'].valid && registerForm.controls['cusr_id'].touched">Please enter the User ID</div> -->
+    <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationTooltip02">First Name</label>
+      <input type="text" class="form-control" formControlName="cusr_name" placeholder="First name" [ngClass]="{'is-invalid':submitted && id.cusr_name.errors}">
+    <div *ngIf="submitted && id.cusr_name.errors" class="invalid-feedback">
+      <div *ngIf="id.cusr_name.errors.required">User Name is required</div>
+    </div>   
+    </div>
+    </div>
+       <!-- <div class="col-md-6 alert alert-danger" *ngIf="!registerForm.controls['cusr_name'].valid && registerForm.controls['cusr_name'].touched">Please enter the Last Name</div> -->
+     <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="enterEmail">Email Address</label>
+          <input type="email" class="form-control" formControlName="email_id" placeholder="Enter email" [ngClass]="{'is-invalid':submitted && id.email_id.errors}">
+        <div *ngIf="submitted && id.email_id.errors" class="invalid-feedback">
+          <div *ngIf="id.email_id.errors.required">Email ID is required</div>
+        </div>   
+        </div>
+        </div>
+           <!-- <div class="col-md-6 alert alert-danger" *ngIf="!registerForm.controls['email_id'].valid && registerForm.controls['email_id'].touched">Please enter the valid Email-ID</div> -->
+      <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="gender">Gender</label>
+            <select name="gender" formControlName="gender" class="form-control" [ngClass]="{'is-invalid':submitted && id.gender.errors}">
+            <option value="" selected disabled>select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <div *ngIf="submitted && id.gender.errors" class="invalid-feedback">
+            <div *ngIf="id.gender.errors.required">Select the Gender</div>
+          </div>
+             </div>
+          </div>
+          <!-- <div class="col-md-6 alert alert-danger" *ngIf="!registerForm.controls['gender'].valid && registerForm.controls['gender'].touched">Please select the gender</div> -->
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="City">City</label>
+      <input type="text" class="form-control" formControlName="city" placeholder="City" [ngClass]="{'is-invalid':submitted && id.city.errors}">
+    <div *ngIf="submitted && id.city.errors" class="invalid-feedback">
+      <div *ngIf="id.city.errors.required">City is required</div>
+    </div> 
+    </div>
+     
+    <div class="col-md-3 mb-3">
+      <label for="State">State</label>
+      <input type="text" class="form-control" formControlName="state" placeholder="State" [ngClass]="{'is-invalid':submitted && id.state.errors}">
+    <div *ngIf="id.state.errors" class="invalid-feedback">
+      <div *ngIf="id.state.errors.required">State is required</div>
+    </div>  
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="zip">Zip</label>
+      <input type="number" class="form-control" formControlName="zip" placeholder="Zip" [ngClass]="{'is-invalid':submitted && id.zip.errors}">
+    <div *ngIf="id.zip.errors" class="invalid-feedback">
+      <div *ngIf="id.zip.errors.required">Zip is required</div>
+    </div>  
+    </div>
+  </div>
+  <!-- <div class="form-row">
+  <div class="col-md-6 alert alert-danger" *ngIf="!registerForm.controls['city'].valid && registerForm.controls['city'].touched">Please enter the city</div>
+  <div class="col-md-3 alert alert-danger" *ngIf="!registerForm.controls['state'].valid && registerForm.controls['state'].touched">Please enter the state</div>
+  <div class="col-md-3 alert alert-danger" *ngIf="!registerForm.controls['zip'].valid && registerForm.controls['zip'].touched">Please enter the Zip code</div>
+    </div> -->
+  <div class="form-row">
+      <div class="col-md-6 mb-3">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" formControlName="password" placeholder="password" [ngClass]="{'is-invalid':submitted && id.password.errors}">
+       <div *ngIf="id.password.errors" class="invalid-feedback">
+         <div *ngIf="id.password.errors.required">Password is required</div>
+       </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="password1">Confirm password</label>
+            <input type="password" class="form-control" formControlName="password1" placeholder="password" [ngClass]="{'is-invalid':submitted && id.password1.errors}">
+         <div *ngIf="id.password1.errors" class="invalid-feedback">
+           <div *ngIf="id.password1.errors.required">Password is required</div>
+         </div>
+          </div> 
+  </div>
+  <!-- <div class="form-row">
+  <div class="col-md-6 alert alert-danger" *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">Please fill the field</div>
+  <div class="col-md-6 alert alert-danger" *ngIf="!registerForm.controls['password1'].valid && registerForm.controls['password1'].touched">Please fill the field</div>
+</div> -->
+  <!-- <button class="btn btn-info" type="submit" [disabled]="!registerForm.valid">Register</button> -->
+  <button class="btn btn-info" type="submit">Register</button>
+
+</div>
+</form>
+</div>
+</div>
+</div>

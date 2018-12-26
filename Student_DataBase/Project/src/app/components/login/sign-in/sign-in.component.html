@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <form [formGroup]="signInForm" (ngSubmit)="login()">
+            <div class="card-body">
+              <h5 class="card-title text-center">Sign In</h5>
+              
+                  <div class="form-group">
+                        <label for="email_id">Email address</label>
+                        <input type="email" class="form-control" formControlName="email_id" [ngClass]="{'is-invalid':submitted && id.email_id.errors}" placeholder="Enter email">
+                        <div *ngIf="id.email_id.errors" class="invalid-feedback">
+                          <div *ngIf="id.email_id.errors.required">Email ID is Mandatory</div>
+                        </div>
+                  </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password" [ngClass]="{'is-invalid':submitted && id.password.errors}">
+                        <div *ngIf="id.password.errors" class="invalid-feedback">
+                          <div *ngIf="id.password.errors.required">Password is Mandatory</div>
+                        </div>
+                      </div>
+                      <div class="text-center mt-2">
+                      <button type="submit" class="btn btn-info">Log In</button>
+                       </div>
+                       <div class="row">
+                          <p> <a [routerLink]="['/register']" class="col blue-text">Not a member? Register</a></p>
+                          <p> <a href="#" class="col blue-text">Forgot Password?</a></p>
+                       </div>
+            </div>
+          </form>
+          </div>
+        </div>
+</div>
+  </div>
+

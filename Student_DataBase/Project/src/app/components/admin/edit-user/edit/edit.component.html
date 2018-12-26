@@ -1,0 +1,70 @@
+
+<div class="jumbotron">
+    <div class="container">
+      <div class="section card mb-6">
+      <form [formGroup]="registerForm" (ngSubmit)="updateUser()">
+        <div class="card-body">
+        <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="cusr_id">User ID</label>
+          <input type="number" formControlName="cusr_id" class="form-control" placeholder="User ID">
+        </div>
+        </div>
+        <div class="col-md-6 mb-3 alert alert-danger" *ngIf="!registerForm.controls['cusr_id'].valid && registerForm.controls['cusr_id'].touched">Please enter the User ID</div>
+        <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="cusr_name">First Name</label>
+          <input type="text" class="form-control" formControlName="cusr_name" placeholder="First name">
+           </div>
+           </div>
+           <div class="col-md-6 alert alert-danger" *ngIf="!registerForm.controls['cusr_name'].valid && registerForm.controls['cusr_name'].touched">Please enter the Last Name</div>
+         <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="enterEmail">Email Address</label>
+              <input type="email" class="form-control" formControlName="email_id" placeholder="Enter email">
+               </div>
+               </div>
+               <div class="col-md-6 alert alert-danger" *ngIf="!registerForm.controls['email_id'].valid && registerForm.controls['email_id'].touched">Please enter the valid Email-ID</div>
+         
+                <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="gender">Gender</label>
+                <select name="gender" formControlName="gender" class="form-control">
+                <option value="" selected disabled>select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+                 </div>
+              </div>
+
+              <div class="col-md-6 alert alert-danger" *ngIf="!registerForm.controls['gender'].valid && registerForm.controls['gender'].touched">Please select the gender</div>
+      
+              <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="City">City</label>
+          <input type="text" class="form-control" formControlName="city" placeholder="City">
+         </div>
+         
+        <div class="col-md-3 mb-3">
+          <label for="State">State</label>
+          <input type="text" class="form-control" formControlName="state" placeholder="State">
+          </div>
+        <div class="col-md-3 mb-3">
+          <label for="zip">Zip</label>
+          <input type="number" class="form-control" formControlName="zip" placeholder="Zip">
+          </div>
+      </div>
+
+      <div class="form-row">
+      <div class="col-md-6 alert alert-danger" *ngIf="!registerForm.controls['city'].valid && registerForm.controls['city'].touched">Please enter the city</div>
+      <div class="col-md-3 alert alert-danger" *ngIf="!registerForm.controls['state'].valid && registerForm.controls['state'].touched">Please enter the state</div>
+      <div class="col-md-3 alert alert-danger" *ngIf="!registerForm.controls['zip'].valid && registerForm.controls['zip'].touched">Please enter the Zip code</div>
+      </div>
+
+      <button class="btn btn-info" type="submit" [disabled]="!registerForm.valid">Edit User</button>
+    
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
